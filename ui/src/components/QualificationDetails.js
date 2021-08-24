@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from '../styles/Form.module.css';
 
 
 export class QualificationDetails extends Component {
@@ -20,7 +21,7 @@ export class QualificationDetails extends Component {
         const { values, handleChange } = this.props;
         return (
                 <div style={styles.wrapper}>
-                    <h1>{this.props.title}</h1>
+                    <h1 style={styles.formTest}>{this.props.title}</h1>
                     <div>
                         <label htmlFor="relationshipStatus">What's your relationship status?</label><br /><br />
                         <select id="relationshipStatus" onChange={handleChange('relationship')}>

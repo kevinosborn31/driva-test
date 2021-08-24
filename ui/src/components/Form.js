@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import BasicDetails from './BasicDetails';
 import QualificationDetails from './QualificationDetails';
+import styles from '../styles/Button.module.css';
+
 
 export class Form extends Component {
 

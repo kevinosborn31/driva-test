@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import styles from '../styles/Button.module.css';
+
 
 
 export class BasicDetails extends Component {
