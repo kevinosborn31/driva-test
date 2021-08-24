@@ -1,12 +1,4 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import { Select } from '@material-ui/core';
 
 
 export class QualificationDetails extends Component {
@@ -27,8 +19,6 @@ export class QualificationDetails extends Component {
     render() {
         const { values, handleChange } = this.props;
         return (
-            <MuiThemeProvider>
-                <AppBar title="A little about you" />
                 <div style={styles.wrapper}>
                     <h1>{this.props.title}</h1>
                     <div>
@@ -41,44 +31,31 @@ export class QualificationDetails extends Component {
                         </select>
                     </div>
                 <br />
-                    <TextField
-                        hintText="$"
-                        floatingLabelText="Your after-tax income"
-                        onChange={handleChange('income')}
-                        defaultValue={values.income}
-                    /> 
-                    <div>
-                        <select id="incomeFrequency" onChange={handleChange('incomeFrequency')}>
-                            <option selected disabled>Select Frequency</option>
-                            <option value="weekly">Weekly</option>
-                            <option value="fortnightly">Fortnightly</option>
-                            <option value="monthly">Monthly</option>
-                        </select>
-                    </div>
+                <div>
+                    <label for="income">Your after-tax income</label>
+                    <input type="number" step="1" id="income" name="income" onChange={handleChange('income')} placeholder="$" defaultValue={values.income}/>
+                    <select id="incomeFrequency" onChange={handleChange('incomeFrequency')}>
+                        <option selected disabled>Select Frequency</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="fortnightly">Fortnightly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </div>
                 <br />
-                    <TextField
-                        hintText="Enter your occupation"
-                        floatingLabelText="Occupation"
-                        onChange={handleChange('occupation')}
-                        defaultValue={values.occupation}
-                    />
+                <label for="occupation">Occupation</label>
+                <input type="text" id="occupation" name="occupation" onChange={handleChange('occupation')} placeholder="Enter your occupation" defaultValue={values.occupation}/>
                     <br/>
-                    <TextField
-                        hintText="Enter your employer's name"
-                        floatingLabelText="Current Employer"
-                        onChange={handleChange('employer')}
-                        defaultValue={values.employer}
-                    />
-                    <br/>
-
-                    <div>
-                        <label htmlFor="yearsInEmployment">What's your relationship status?</label><br /><br />
-                        <select id="yearsInEmployment" onChange={handleChange('yearsInEmployment')}>
-                            <option selected disabled>Number of Years</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
+                <div>
+                    <label for="employer">Current Employer</label>
+                    <input type="text" id="employer" name="employer" onChange={handleChange('employer')} placeholder="Enter your employer's name" defaultValue={values.employer}/>
+                        <br/>
+                            <label htmlFor="yearsInEmployment">What's your relationship status?</label><br /><br />
+                            <select id="yearsInEmployment" onChange={handleChange('yearsInEmployment')}>
+                                <option selected disabled>Number of Years</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
                     </div>
                     <div>
                         <select id="monthsInEmployment" onChange={handleChange('monthsInEmplyoment')}>
@@ -108,21 +85,10 @@ export class QualificationDetails extends Component {
                         </select>
                     </div>
                     <input type="checkbox" id="otherIncome" name="otherIncome" value="true" />
-                    <label for="otherIncome">Do you have other sources of income?</label>
-                    <RaisedButton 
-                        label="Back"
-                        primary={true}
-                        style={styles.button}
-                        onClick={this.back}
-                    />
-                    <RaisedButton 
-                        label="Next"
-                        primary={true}
-                        style={styles.button}
-                        onClick={this.continue}
-                    />
+                    <label for="otherIncome" onChange={handleChange('otherIncome')}>Do you have other sources of income?</label>
+                    <button onClick={this.back}>Back</button>
+                    <button onClick={this.continue}>Next</button>
                 </div>
-            </MuiThemeProvider>
         )
     }
 }
@@ -135,14 +101,7 @@ const styles = {
         width: "100%",
         margin: 15,
         textAlign: "center"
-    },
-    formControl: {
-        //margin: theme.spacing(1),
-        minWidth: 120,
-      },
-      selectEmpty: {
-        // marginTop: theme.spacing(2),
-      },
+    }
 } 
 
 export default QualificationDetails

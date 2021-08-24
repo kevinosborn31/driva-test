@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+
 
 export class BasicDetails extends Component {
     continue = e => {
@@ -13,8 +11,6 @@ export class BasicDetails extends Component {
     render() {
         const { values, handleChange } = this.props;
         return (
-            <MuiThemeProvider>
-                <AppBar title="Tell us about yourself" />
                 <div style={styles.wrapper}>
                 <h1>{this.props.title}</h1>
                 <label for="firstName">First name</label>
@@ -29,21 +25,11 @@ export class BasicDetails extends Component {
                 <label for="phone">Mobile number</label>
                 <input type="tel" id="phone" name="phone" onChange={handleChange('phone')} placeholder="+61" defaultValue={values.phone}/>
                 <br/>
-                <TextField
-                    hintText="Please enter a valid email"
-                    floatingLabelText="Email"
-                    onChange={handleChange('email')}
-                    defaultValue={values.email}
-                />
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" onChange={handleChange('email')} placeholder="Please enter a valid email" defaultValue={values.email}/>
                 <br/>
-                <RaisedButton 
-                    label="Next"
-                    primary={true}
-                    style={styles.button}
-                    onClick={this.continue}
-                />
+                    <button onClick={this.continue}>Next</button>
                 </div>
-            </MuiThemeProvider>
         )
     }
 }
