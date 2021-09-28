@@ -12,7 +12,7 @@ export class BasicDetails extends Component {
     render() {
         const { values, handleChange } = this.props;
         return (
-                <div style={styles.wrapper}>
+                <div className={styles.wrapper}>
                 <h1>{this.props.title}</h1>
                 <label for="firstName">First name</label>
                 <input type="text" id="firstName" name="firstName" onChange={handleChange('firstName')} placeholder="As it appears on your license" defaultValue={values.firstName}/>
@@ -34,16 +34,5 @@ export class BasicDetails extends Component {
         )
     }
 }
-
-const styles = {
-    button: {
-        margin: 15
-    },
-    wrapper: {
-        width: "100%",
-        margin: 15,
-        textAlign: "center"
-    }
-} 
 
 export default BasicDetails
