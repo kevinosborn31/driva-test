@@ -27,57 +27,7 @@ export class Form extends Component {
 
 
 
-    validateForm() {
-        let fields = this.state;
-        let errors = {};
-        let formIsValid = true;
 
-        function validateName(nameField) {
-            if (!this.state[nameField]) {
-                formIsValid = false;
-                errors[nameField] = "Cannot be empty";
-              }
-          
-              if (typeof this.state[nameField] !== "undefined") {
-                if (!this.state[nameField].match(/^[a-zA-Z]+$/)) {
-                  formIsValid = false;
-                  errors[nameField] = "Only letters";
-                }
-              }
-        }
-    
-        validateName(fields.firstName);
-        validateName(fields.middleName);
-        validateName(fields.lastName);
-
-    
-        //Email
-        if (!fields["email"]) {
-          formIsValid = false;
-          errors["email"] = "Cannot be empty";
-        }
-    
-        if (typeof fields["email"] !== "undefined") {
-          let lastAtPos = fields["email"].lastIndexOf("@");
-          let lastDotPos = fields["email"].lastIndexOf(".");
-    
-          if (
-            !(
-              lastAtPos < lastDotPos &&
-              lastAtPos > 0 &&
-              fields["email"].indexOf("@@") == -1 &&
-              lastDotPos > 2 &&
-              fields["email"].length - lastDotPos > 2
-            )
-          ) {
-            formIsValid = false;
-            errors["email"] = "Email is not valid";
-          }
-        }
-    
-        this.setState({ errors: errors });
-        return formIsValid;
-      }
     
       handleSubmit(e) {
           let data = this.state;
@@ -167,6 +117,7 @@ export class Form extends Component {
                     <BasicDetails 
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
+                        validateForm={this.validateForm}
                         values={values}
                         title="Tell us about yourself"
                     />

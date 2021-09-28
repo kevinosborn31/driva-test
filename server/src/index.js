@@ -12,6 +12,8 @@ server.listen(port, () => {
 });
 
 function create_quote(req, res) {
+
+  // Connect to database
   server.getConnection(function(err, connection) {
     if(err) {
       connection.release();
@@ -19,7 +21,9 @@ function create_quote(req, res) {
       return;
     }
 
+    // SQL query
     let sql ="INSERT INTO quotes (status, mobile, email, quote_data) VALUES (?, ?, ?, ?) ";
+      // Assign data to variables
         let status = request.body.relationship;
         let mobile = request.body.phone;
         let email = request.body.email;
@@ -37,15 +41,16 @@ function create_quote(req, res) {
           otherIncome: request.body.otherIncome
         };
 
+        // Initialize values
         let values = [status, mobile, email, quote_data];
-
+        
         console.log("connected as id '" + connection.threadId);
         console.log("here")
         connection.query(sql, values, function(err, result, fields) {
             connection.release();
             if(!err) {
                 console.log(result);
-            }else console.log(err);
+            } else console.log(err);
         });    
   
         connection.on('error', function(err){
@@ -55,6 +60,7 @@ function create_quote(req, res) {
   })
 };
 
+// Post to driva database
 router.post('/driva', function(req, res){
   create_quote(req, res);
 });

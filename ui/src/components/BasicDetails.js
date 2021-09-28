@@ -4,10 +4,86 @@ import styles from '../styles/Form.module.css';
 
 
 export class BasicDetails extends Component {
-    continue = e => {
-        e.preventDefault();
-        this.props.nextStep();
-    }
+
+    validateForm() {
+        let fields = this.props.values;
+        let errors = {};
+        let nameIsValid = true;
+        let emailIsValid = true;
+
+        // TODO: Write unit tests for this function
+        function validateName() {
+            if (!fields.firstName) {
+                nameIsValid = false;
+                // alert("First Name" + fields.firstName + " cannot be empty")
+              }
+              if (fields.firstName !== "") {
+                if (!fields.firstName.match(/^[a-zA-Z]+$/)) {
+                  nameIsValid = false;
+                  // alert("Please only enter letters for first name")
+                  console.log(errors);
+                } else {
+                    return true;
+                }
+              }     
+        }
+            
+
+        // TODO: put this into a function to be unit tested
+        // TODO: add validation for the other fields
+        // Validate email
+        function validateEmail() {
+            if (!fields.email) {
+                emailIsValid = false;
+                errors["email"] = "Cannot be empty";
+              }
+          
+              if (fields["email"] !== "") {
+                let lastAtPos = fields["email"].lastIndexOf("@");
+                let lastDotPos = fields["email"].lastIndexOf(".");
+          
+                if (
+                  !(
+                    lastAtPos < lastDotPos &&
+                    lastAtPos > 0 &&
+                    fields["email"].indexOf("@@") == -1 &&
+                    lastDotPos > 2 &&
+                    fields["email"].length - lastDotPos > 2
+                  )
+                ) {
+                    emailIsValid = false;
+                  console.log(errors);
+                }
+              }
+          
+              return emailIsValid;
+            }
+
+            if (!validateEmail()) {
+                alert("Email is not valid")
+            }
+
+            if(!validateName()) {
+                alert("Name is not valid");
+            }
+
+            if (validateEmail() && validateName()) {
+                return true;
+            }
+
+
+        }
+
+
+        continue = e => {
+            this.validateForm();
+            if (this.validateForm()) {
+                this.props.nextStep();
+            }
+            e.preventDefault();
+        }
+
+    
 
     render() {
         const { values, handleChange } = this.props;

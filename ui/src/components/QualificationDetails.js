@@ -14,20 +14,24 @@ export class QualificationDetails extends Component {
 
     handleSubmit = e => {
         let data = this.props;
+        let validateForm = this.props.validateForm;
 
-        fetch('https://localhost:8080/driva', {
-            method: 'post',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({data})
-            }).then(function(response) {
-                return response.json()
-            }).catch(error => console.log(error))
+            // TODO: Get this fetch to work
 
-            e.preventDefault();
-            this.props.nextStep();
+            fetch('https://localhost:8080/driva', {
+                method: 'post',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({data})
+                }).then(function(response) {
+                    return response.json()
+                }).catch(error => console.log(error))
+    
+                e.preventDefault();
+                this.props.nextStep();
+      
     }
 
 
