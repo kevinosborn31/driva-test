@@ -121,7 +121,7 @@ export class QualificationDetails extends Component {
                     </div>
                     <div className={styles.fieldGroup, styles.fw}>
                     <input type="checkbox" id="otherIncome" name="otherIncome" value="true" />
-                    <p htmlFor="otherIncome" onChange={handleChange('otherIncome')}>Do you have other sources of income?</p>
+                    <p className={styles.fw} onChange={handleChange('otherIncome')}>Do you have other sources of income?</p>
                     </div>
                     <button className={styles.continueButton}  onClick={this.back}>Back</button>
                     <button className={styles.continueButton} onClick={this.handleSubmit}>Next</button>

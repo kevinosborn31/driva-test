@@ -37,7 +37,19 @@
     width: 80%;
 }
 
+.formInput select {
+    border-radius: 32px;
+    border: 1px solid gray;
+    padding: 19px 30px;
+    background-color: #fff;
+    width: 80%;
+}
+
 .fw .formInput input {
+    width: 87%;
+}
+
+.fw .formInput select {
     width: 87%;
 }
 
@@ -45,8 +57,16 @@ input:focus {
     outline: 0;
 }
 
+select:focus {
+    outline: 0;
+}
+
 .formInput:focus-within input {
     border: 1.5px solid blue;
+  }
+
+  .formInput:focus-within select {
+      border: 1.5px solid blue;
   }
 
 .fieldGroup {
@@ -61,7 +81,13 @@ input:focus {
     .formInput input {
         width: 50%;
     }
+    .formInput select {
+        width: 50%;
+    }
     .fw .formInput input {
+        width: 75%;
+    }
+    .fw .formInput select {
         width: 75%;
     }
 
