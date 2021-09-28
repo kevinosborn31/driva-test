@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import BasicDetails from './BasicDetails';
 import QualificationDetails from './QualificationDetails';
 import Success from './Success';
-import styles from '../styles/Form.module.css';
 
 
 export class Form extends Component {
@@ -26,9 +25,81 @@ export class Form extends Component {
         errors: {}
     }
 
-    validateFields = () => {
 
-    }
+
+    validateForm() {
+        let fields = this.state;
+        let errors = {};
+        let formIsValid = true;
+
+        function validateName(nameField) {
+            if (!this.state[nameField]) {
+                formIsValid = false;
+                errors[nameField] = "Cannot be empty";
+              }
+          
+              if (typeof this.state[nameField] !== "undefined") {
+                if (!this.state[nameField].match(/^[a-zA-Z]+$/)) {
+                  formIsValid = false;
+                  errors[nameField] = "Only letters";
+                }
+              }
+        }
+    
+        validateName(fields.firstName);
+        validateName(fields.middleName);
+        validateName(fields.lastName);
+
+    
+        //Email
+        if (!fields["email"]) {
+          formIsValid = false;
+          errors["email"] = "Cannot be empty";
+        }
+    
+        if (typeof fields["email"] !== "undefined") {
+          let lastAtPos = fields["email"].lastIndexOf("@");
+          let lastDotPos = fields["email"].lastIndexOf(".");
+    
+          if (
+            !(
+              lastAtPos < lastDotPos &&
+              lastAtPos > 0 &&
+              fields["email"].indexOf("@@") == -1 &&
+              lastDotPos > 2 &&
+              fields["email"].length - lastDotPos > 2
+            )
+          ) {
+            formIsValid = false;
+            errors["email"] = "Email is not valid";
+          }
+        }
+    
+        this.setState({ errors: errors });
+        return formIsValid;
+      }
+    
+      handleSubmit(e) {
+          let data = this.state;
+        e.preventDefault();
+    
+        if (this.handleValidation()) {
+            fetch('https://localhost:8080/driva', {
+                method: 'post',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({data})
+                }).then(function(response) {
+                    return response.json()
+                }).catch(error => console.log(error))               
+          alert("Form submitted");
+          this.props.nextStep();
+        } else {
+          alert("Form has errors.");
+        }
+      }
 
  
 
@@ -114,6 +185,7 @@ export class Form extends Component {
                 return (
                     <Success
                     values={values}
+                    handleSubmit={this.handleSubmit}
                     title="Success! Your quote has been submitted with the following information"
                     />
                 )
