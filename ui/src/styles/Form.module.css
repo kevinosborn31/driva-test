@@ -1,13 +1,69 @@
-.formTest {
-
+.hw {
+    width: 48%;
+    max-width: 48%;
+    display: inline-block;
 }
 
-button {
-    margin: 15
+.pageContainer {
+    margin: auto 10%;   
 }
 
-.wrapper {
+.continueButton{
+    background-color: #3577D4;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    padding: 20px 50px;
+    font-size: 18px;
+}
+.continueButton:hover {
+    background-color: #255394;
+    cursor: pointer;
+}
+
+.fw {
     width: 100%;
-    margin: 15px;
-    text-align: center;
 }
+
+.checkoutForm {
+    max-width: 800px;
+}
+
+.formInput input {
+    border-radius: 32px;
+    border: 1px solid gray;
+    padding: 19px 30px;
+    background-color: #fff;
+    width: 80%;
+}
+
+.fw .formInput input {
+    width: 87%;
+}
+
+input:focus {
+    outline: 0;
+}
+
+.formInput:focus-within input {
+    border: 1.5px solid blue;
+  }
+
+.fieldGroup {
+    padding-top: 10px;
+}
+
+.packContinueButton {
+    margin: 30px 0;
+}
+
+@media screen and (max-width: 800px) {
+    .formInput input {
+        width: 50%;
+    }
+    .fw .formInput input {
+        width: 75%;
+    }
+
+}
+

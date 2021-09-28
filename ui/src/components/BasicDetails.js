@@ -12,24 +12,43 @@ export class BasicDetails extends Component {
     render() {
         const { values, handleChange } = this.props;
         return (
-                <div className={styles.wrapper}>
-                <h1>{this.props.title}</h1>
-                <label htmlFor="firstName">First name</label>
-                <input type="text" id="firstName" name="firstName" onChange={handleChange('firstName')} placeholder="As it appears on your license" defaultValue={values.firstName}/>
-                <br/>
-                <label htmlFor="middleName">Middle name</label>
-                <input type="text" id="middleName" name="middleName" onChange={handleChange('middleName')} placeholder="Optional" defaultValue={values.middleName}/>
-                <br/>
-                <label htmlFor="lastName">Last name</label>
-                <input type="text" id="lastName" name="lastName" onChange={handleChange('lastName')} placeholder="As it appears on your license" defaultValue={values.middleName}/>
-                <br/>
-                <label htmlFor="phone">Mobile number</label>
-                <input type="tel" id="phone" name="phone" onChange={handleChange('phone')} placeholder="+61" defaultValue={values.phone}/>
-                <br/>
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" onChange={handleChange('email')} placeholder="Please enter a valid email" defaultValue={values.email}/>
-                <br/>
-                    <button onClick={this.continue}>Next</button>
+                <div className={styles.pageContainer}>
+                    <div className={styles.orderInfo}>
+                    <div className={styles.checkoutForm}>
+                    <h1>{this.props.title}</h1>
+                        <div className={styles.fieldGroup, styles.fw}>
+                            <p className={styles.fw}>First name</p>
+                            <div className={styles.formInput}>
+                                <input type="text" id="firstName" name="firstName" onChange={handleChange('firstName')} placeholder="As it appears on your license" defaultValue={values.firstName}/>
+                            </div>
+                        </div>
+                        <div className={styles.fieldGroup, styles.fw}>
+                        <p className={styles.fw}>Middle name</p>
+                            <div className={styles.formInput}>
+                        <input type="text" id="middleName" name="middleName" onChange={handleChange('middleName')} placeholder="Optional" defaultValue={values.middleName}/>
+                            </div>
+                        </div>
+                        <div className={styles.fieldGroup, styles.fw}>
+                        <p className={styles.fw}>Last name</p>
+                            <div className={styles.formInput}>
+                        <input type="text" id="lastName" name="lastName" onChange={handleChange('lastName')} placeholder="As it appears on your license" defaultValue={values.middleName}/>
+                            </div>
+                        </div>
+                        <div className={styles.fieldGroup, styles.fw}>
+                        <p className={styles.fw}>Mobile number</p>
+                            <div className={styles.formInput}>
+                        <input type="tel" id="phone" name="phone" onChange={handleChange('phone')} placeholder="+61" defaultValue={values.phone}/>
+                            </div>
+                        </div>
+                        <div className={styles.fieldGroup, styles.fw}>
+                        <p className={styles.fw}>Email</p>
+                            <div className={styles.formInput}>
+                        <input type="email" id="email" name="email" onChange={handleChange('email')} placeholder="Please enter a valid email" defaultValue={values.email}/>
+                            </div>
+                        </div>
+                            <button className={styles.continueButton} onClick={this.continue}>Next</button>
+                    </div>
+                </div>
                 </div>
         )
     }
