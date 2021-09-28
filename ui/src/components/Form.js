@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BasicDetails from './BasicDetails';
 import QualificationDetails from './QualificationDetails';
-import styles from '../styles/Button.module.css';
+import styles from '../styles/Form.module.css';
 
 
 export class Form extends Component {
@@ -66,11 +66,11 @@ export class Form extends Component {
             case 2:
                 return (
                     <QualificationDetails
-                    nextStep={this.nextStep}
-                    prevStep={this.prevStep}
-                    handleChange={this.handleChange}
-                    values={values}
-                    title="A little about you"
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                        title="A little about you"
                     />
                 )
             case 3:
