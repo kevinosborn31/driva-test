@@ -31,7 +31,7 @@ export class BasicDetails extends Component {
                         <div className={styles.fieldGroup, styles.fw}>
                         <p className={styles.fw}>Last name</p>
                             <div className={styles.formInput}>
-                        <input type="text" id="lastName" name="lastName" onChange={handleChange('lastName')} placeholder="As it appears on your license" defaultValue={values.middleName}/>
+                        <input type="text" id="lastName" name="lastName" onChange={handleChange('lastName')} placeholder="As it appears on your license" defaultValue={values.lastName}/>
                             </div>
                         </div>
                         <div className={styles.fieldGroup, styles.fw}>
@@ -54,4 +54,4 @@ export class BasicDetails extends Component {
     }
 }
 
-export default BasicDetails
+export default BasicDetails;

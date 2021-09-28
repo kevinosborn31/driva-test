@@ -83,9 +83,11 @@ export class QualificationDetails extends Component {
                             <div className={styles.formInput}>
                             <select id="yearsInEmployment" onChange={handleChange('yearsInEmployment')}>
                                 <option defaultValue disabled>Number of Years</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="0">0 years</option>
+                                <option value="1">1 year</option>
+                                <option value="2">2 years</option>
+                                <option value="3">3 years</option>
+                                <option value="4">4 years</option>
                             </select>
                         </div>
                     </div>
@@ -93,18 +95,18 @@ export class QualificationDetails extends Component {
                         <div className={styles.formInput}>
                         <select id="monthsInEmployment" onChange={handleChange('monthsInEmplyoment')}>
                             <option defaultValue disabled>Number of Months</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
+                            <option value="1">1 month</option>
+                            <option value="2">2 months</option>
+                            <option value="3">3 months</option>
+                            <option value="4">4 months</option>
+                            <option value="5">5 months</option>
+                            <option value="6">6 months</option>
+                            <option value="7">7 months</option>
+                            <option value="8">8 months</option>
+                            <option value="9">9 months</option>
+                            <option value="10">10 months</option>
+                            <option value="11">11 months</option>
+                            <option value="12">12 months</option>
                         </select>
                         </div>
                     </div>
@@ -116,12 +118,13 @@ export class QualificationDetails extends Component {
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
+                            <option value="3">3</option>
                         </select>
                         </div>
                     </div>
-                    <div className={styles.fieldGroup, styles.fw}>
-                    <input type="checkbox" id="otherIncome" name="otherIncome" value="true" />
-                    <p className={styles.fw} onChange={handleChange('otherIncome')}>Do you have other sources of income?</p>
+                    <div className={styles.fieldGroup, styles.fw, styles.checkboxGroup}>
+                    <input type="checkbox"id="otherIncome" name="otherIncome"  onChange={handleChange('otherIncome')} value="true" />
+                    <p className={styles.fw, styles.checkbox}>Do you have other sources of income?</p>
                     </div>
                     <button className={styles.continueButton}  onClick={this.back}>Back</button>
                     <button className={styles.continueButton} onClick={this.handleSubmit}>Next</button>

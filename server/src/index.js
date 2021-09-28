@@ -55,6 +55,6 @@ function create_quote(req, res) {
   })
 };
 
-router.post('/create', function(req, res){
+router.post('/driva', function(req, res){
   create_quote(req, res);
 });

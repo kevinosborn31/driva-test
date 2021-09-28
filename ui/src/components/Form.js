@@ -22,7 +22,12 @@ export class Form extends Component {
         yearsWithEmployer: '',
         monthsWithEmployer: '',
         dependants: '',
-        otherIncome: false
+        otherIncome: "false",
+        errors: {}
+    }
+
+    validateFields = () => {
+
     }
 
  
@@ -30,6 +35,12 @@ export class Form extends Component {
     // Handle fields change
 
     handleChange = input => e => {
+        // TODO: get this to work properly
+        if (input === "otherIncome" && this.state.otherIncome === "false") {
+            this.setState({otherIncome: "true"});
+        } else {
+            this.setState({otherIncome: "false"});
+        }
         this.setState({[input]: e.target.value })
     }
 
@@ -102,9 +113,8 @@ export class Form extends Component {
             case 3:
                 return (
                     <Success
-                    resetData={this.restart}
                     values={values}
-                    title="Success! Your quote has been submitted"
+                    title="Success! Your quote has been submitted with the following information"
                     />
                 )
         }

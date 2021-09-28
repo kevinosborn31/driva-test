@@ -5,7 +5,11 @@
 }
 
 .pageContainer {
-    margin: auto 10%;   
+    margin: auto 25%;   
+}
+
+.successList {
+    list-style-type: none;
 }
 
 .continueButton{
@@ -15,6 +19,7 @@
     color: white;
     padding: 20px 50px;
     font-size: 18px;
+    margin: 25px 15px 25px 0px;
 }
 .continueButton:hover {
     background-color: #255394;
@@ -23,6 +28,15 @@
 
 .fw {
     width: 100%;
+}
+
+.checkbox {
+    display: inline;
+    margin-left: 10px;
+}
+
+.checkboxGroup {
+    margin-top: 30px;
 }
 
 .checkoutForm {
