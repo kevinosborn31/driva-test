@@ -41,7 +41,7 @@ export class QualificationDetails extends Component {
                     <div>
                         <label htmlFor="relationshipStatus">What's your relationship status?</label><br /><br />
                         <select id="relationshipStatus" onChange={handleChange('relationship')}>
-                            <option selected disabled>Please Select</option>
+                            <option defaultValue disabled>Please Select</option>
                             <option value="1">Single</option>
                             <option value="2">In a relationship</option>
                             <option value="3">Married</option>
@@ -49,26 +49,26 @@ export class QualificationDetails extends Component {
                     </div>
                 <br />
                 <div>
-                    <label for="income">Your after-tax income</label>
+                    <label htmlFor="income">Your after-tax income</label>
                     <input type="number" step="1" id="income" name="income" onChange={handleChange('income')} placeholder="$" defaultValue={values.income}/>
                     <select id="incomeFrequency" onChange={handleChange('incomeFrequency')}>
-                        <option selected disabled>Select Frequency</option>
+                        <option defaultValue disabled>Select Frequency</option>
                         <option value="weekly">Weekly</option>
                         <option value="fortnightly">Fortnightly</option>
                         <option value="monthly">Monthly</option>
                     </select>
                 </div>
                 <br />
-                <label for="occupation">Occupation</label>
+                <label htmlFor="occupation">Occupation</label>
                 <input type="text" id="occupation" name="occupation" onChange={handleChange('occupation')} placeholder="Enter your occupation" defaultValue={values.occupation}/>
                     <br/>
                 <div>
-                    <label for="employer">Current Employer</label>
+                    <label htmlFor="employer">Current Employer</label>
                     <input type="text" id="employer" name="employer" onChange={handleChange('employer')} placeholder="Enter your employer's name" defaultValue={values.employer}/>
                         <br/>
                             <label htmlFor="yearsInEmployment">What's your relationship status?</label><br /><br />
                             <select id="yearsInEmployment" onChange={handleChange('yearsInEmployment')}>
-                                <option selected disabled>Number of Years</option>
+                                <option defaultValue disabled>Number of Years</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -76,7 +76,7 @@ export class QualificationDetails extends Component {
                     </div>
                     <div>
                         <select id="monthsInEmployment" onChange={handleChange('monthsInEmplyoment')}>
-                            <option selected disabled>Number of Months</option>
+                            <option defaultValue disabled>Number of Months</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -95,14 +95,14 @@ export class QualificationDetails extends Component {
                     <div>
                         <label htmlFor="dependants">Have any dependants?</label><br /><br />
                         <select id="dependants" onChange={handleChange('dependants')}>
-                            <option selected disabled>Please select</option>
+                            <option defaultValue disabled>Please select</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                         </select>
                     </div>
                     <input type="checkbox" id="otherIncome" name="otherIncome" value="true" />
-                    <label for="otherIncome" onChange={handleChange('otherIncome')}>Do you have other sources of income?</label>
+                    <label htmlFor="otherIncome" onChange={handleChange('otherIncome')}>Do you have other sources of income?</label>
                     <button onClick={this.back}>Back</button>
                     <button onClick={this.handleSubmit}>Next</button>
                 </div>

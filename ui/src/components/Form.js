@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BasicDetails from './BasicDetails';
 import QualificationDetails from './QualificationDetails';
+import Success from './Success';
 import styles from '../styles/Form.module.css';
 
 
@@ -24,6 +25,8 @@ export class Form extends Component {
         otherIncome: false
     }
 
+ 
+
     // Handle fields change
 
     handleChange = input => e => {
@@ -44,6 +47,29 @@ export class Form extends Component {
         this.setState({
             step: step - 1
         });
+    }
+
+       // Restart form process
+       restart = () => {
+        this.state = {
+            step: 1,
+            firstName: '',
+            middleName: '',
+            lastName: '',
+            phone: '',
+            email: '',
+            relationship: '',
+            income: '',
+            incomeFrequency: '',
+            occupation: '',
+            employer: '',
+            yearsWithEmployer: '',
+            monthsWithEmployer: '',
+            dependants: '',
+            otherIncome: false
+        } 
+
+        console.log(this.state.step);
     }
 
     render() {
@@ -75,7 +101,11 @@ export class Form extends Component {
                 )
             case 3:
                 return (
-                    <h1>Success</h1>
+                    <Success
+                    resetData={this.restart}
+                    values={values}
+                    title="Success! Your quote has been submitted"
+                    />
                 )
         }
     }
